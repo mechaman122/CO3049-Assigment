@@ -1,3 +1,4 @@
+/* Master CSS applied for pages (please include to all except line between title)*/
 html {
   font-size: 100%;
   -webkit-box-sizing: border-box;
@@ -21,10 +22,51 @@ body {
     margin: 0px;
     padding: 0px;
 
-    animation: fadeInAnimation ease 0.5s /*Fade in on page load*/
+    /*Fade in on page load*/
+    animation: fadeInAnimation ease 0.5s 
 }
 
-/* Add line between title*/
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+     }
+}
+
+/*Animation to enlarge search box when clicked in*/
+#textbox {
+    width:100px;
+    transition: 0.3s;
+}
+  
+#textbox:focus {
+    width: 200px;
+    transition: 0.3s;
+}
+/*End of Animation*/
+
+/*Back to Top button*/
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 30px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 20px; /* Rounded corners */
+    font-size: 12px; /* Increase font size */
+}
+  
+#myBtn:hover {
+    color: #555; /* Add a dark-grey background on hover */
+}
+/*End of Back to Top button*/
+
+
+/* Add line between title like this: ------title-----*/
 h1 {
     overflow: hidden;
     text-align: center;
@@ -50,40 +92,4 @@ h1:after {
     left: 0.5em;
     margin-right: -50%;
 }
-
-@keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-     }
-}
-#textbox {
-    width:100px;
-    transition: 0.3s;
-}
-  
-#textbox:focus {
-    width: 200px;
-    transition: 0.3s;
-}
-
-#myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 30px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 20px; /* Rounded corners */
-    font-size: 12px; /* Increase font size */
-}
-  
-#myBtn:hover {
-    color: #555; /* Add a dark-grey background on hover */
-}
-
-
-/*# sourceMappingURL=style.css.map */
+/*end of line between title*/
