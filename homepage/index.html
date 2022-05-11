@@ -14,41 +14,48 @@
 </head>
 
 <body>
+
+<!--Below is to show the navigation bar-->
     <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!--Below is to show left side of the navigation bar-->
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">Company Logo</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <a class="navbar-brand" href="#">
+                        <img src="img/among-us-text-logo.png" alt="" width="65px" height="auto" class="d-inline-block align-text-top">
+                      </a>
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#">News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="#">Contact</a>
+                        </li>
+                    </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox">
                         <button type="submit" class="btn btn-outline-dark"><i class="bi bi-search"></i></button>
                     </form>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">News</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                    </ul>
-                    <div class="dropstart">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="img/among-us-symbol.png" width="50" height="auto" alt="user's Logo">
+                </div>
+                <div class="d-flex justify-content-end">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="user-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="img/among-us-symbol.png" width="65px" height="auto" alt="user's Logo">
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item disabled" id="user-signin-as" href="#">Signed in as</a></li>
+                        <ul class="dropdown-menu dropdown-menu-lg-end dropdown-menu-dark" aria-labelledby="user-dropdown">
+                            <li><h6 class="dropdown-header" id="user-signin-as" href="#">Signed in as</h6></li>
                             <li><a class="dropdown-item" id="user-signin-name" href="#"><b>user1234</b></a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -60,57 +67,108 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" id="user-signout-text" href="#">Sign Out</a></li>
+                            <li><a class="dropdown-item" id="user-signout-text" href="#"><i class="bi bi-box-arrow-in-right"></i> Sign Out</a></li>
                         </ul>
+                        </div>
+
+<!--Below is the code to show user logo (with dropdown) and cart info (with dropdown)-->
+
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="user-cart-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="img/cart-icon.jpg" alt="cart icon" width="40px" height="auto">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-2" style="max-width: 250px;" aria-labelledby="user-cart-dropdown">
+                            <li><a class="dropdown-item" id="user-cart-viewall" href="#"><i class="bi bi-view-stacked"></i> View Cart (10)</a></li>
+                            <li><a class="dropdown-item active" id="user-checkout" href="#"><i class="bi bi-arrow-right-square"></i> Proceed to Checkout</a></li>
+                        </div>
                     </div>
                 </div>
             </div>
         </nav>
     </div>
-    <div class="container-fluid row px-sm-5 main-section" id="main-first">
-        <div class="col-sm-7">
-            <p>Our mission</p>
-            <h1 class="fw-bolder">Title Sample</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quo eius eaque fuga unde vel incidunt ea, natus maiores eos temporibus perspiciatis consequuntur aperiam, placeat fugiat sed, nobis magnam est.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae expedita ipsum, facere aliquam omnis tenetur, doloribus velit, accusamus fugiat enim ratione voluptates non alias labore repudiandae temporibus et numquam?</p>
+
+<!--Below is to show carousel to show banner-->
+    <div id="banner-carousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="col-sm-5">
-            <img src="img/among-us-icon.jpg" class="img-fluid rounded" alt="Among us">
+        <div class="carousel-inner" style="height: 90vh; width: 100vw;">
+          <div class="carousel-item active">
+            <img src="img/banner-sample.png" class="d-block w-100 mx-auto" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner-sample.png" class="d-block w-100 mx-auto" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banner-sample.png" class="d-block w-100 mx-auto" alt="...">
+          </div>
         </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#banner-carousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#banner-carousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
     </div>
-    <div class="container-fluid row px-sm-5 main-section" id="main-second">
-        <div class="row">
-            <div class="col-sm-6">
-                <p>Inspirational something</p>
-                <h1 class="fw-bolder">Another Title Sample</h1>
-            </div>
-            <div class="col-sm-6">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum, adipisci aut magnam veniam, possimus assumenda necessitatibus quam quis numquam natus, facilis ab nisi recusandae cumque? Cupiditate possimus ex exercitationem natus.</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae fugiat quibusdam soluta? Voluptatibus aliquid commodi reprehenderit alias neque, facilis quod eaque enim exercitationem tenetur voluptate modi repudiandae repellendus mollitia
-                    corrupti?
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <img src="img/among-us-background.jpg" class="img-fluid rounded mx-auto second-image" alt="Among Us Sample">
-        </div>
-    </div>
-    <div class="container-fluid row px-sm-5 main-section" id="main-last">
-        <div class="col-sm-6">
-            <p>Not another mission</p>
-            <h1 class="fw-bolder">Last Title Sample</h1>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Non quo eius eaque fuga unde vel incidunt ea, natus maiores eos temporibus perspiciatis consequuntur aperiam, placeat fugiat sed, nobis magnam est.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum recusandae expedita ipsum, facere aliquam omnis tenetur, doloribus velit, accusamus fugiat enim ratione voluptates non alias labore repudiandae temporibus et numquam?</p>
-        </div>
-        <div class="col-sm-6">
-            <img src="img/among-us-cover.jpg" class="img-fluid rounded" alt="Among us">
+    <h1>This is a title</h1>
+
+    <div class="container">
+        <div class="row product-row">
+          <div class="col-6 col-sm-3">
+            <div class="card" style="width: 15rem;">
+                <img src="img/among-us-symbol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">The Sus</h5>
+                  <p class="card-text">$99</p>
+                  <a href="#" class="btn btn-primary">Add now</a>
+                  <a href="#" class="btn ">Check</a>
+                </div>
+              </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="card" style="width: 15rem;">
+                <img src="img/among-us-symbol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">The Sussier</h5>
+                  <p class="card-text">$109</p>
+                  <a href="#" class="btn btn-primary">Add now</a>
+                  <a href="#" class="btn ">Check</a>
+                </div>
+              </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="card" style="width: 15rem;">
+                <img src="img/among-us-symbol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">The even more Sus</h5>
+                  <p class="card-text">$129</p>
+                  <a href="#" class="btn btn-primary">Add now</a>
+                  <a href="#" class="btn ">Check</a>
+                </div>
+              </div>
+          </div>
+          <div class="col-6 col-sm-3">
+            <div class="card" style="width: 15rem;">
+                <img src="img/among-us-symbol.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">The even more Sus</h5>
+                  <p class="card-text">$129</p>
+                  <a href="#" class="btn btn-primary">Add now</a>
+                  <a href="#" class="btn ">Check</a>
+                </div>
+              </div>
+          </div>
         </div>
     </div>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                <p>Company Logo</p>
+                <img src="img/among-us-text-logo.png" alt="" width="55" height="auto" class="d-inline-block">
             </a>
             <span class="text-muted">© 2022 Company, Inc</span>
         </div>
