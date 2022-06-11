@@ -1,3 +1,16 @@
+<?php
+session_start();
+if (isset($_SESSION["username"])) {
+    $username = $_SESSION["username"];
+    session_write_close();
+} else {
+    // since the username is not set in session, the user is not-logged-in
+    // create an instance with username (guest)
+    $username = "Guest";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,18 +72,25 @@
                             <li>
                                 <h6 class="dropdown-header" id="user-signin-as" href="#">Signed in as</h6>
                             </li>
-                            <li><a class="dropdown-item" id="user-signin-name" href="#"><b>user1234</b></a></li>
+                            <li><a class="dropdown-item" id="user-signin-name" href="#"><b><?php echo $username;?></b></a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" id="user-signin-text" href="/registerform/index.html">Sign In</a></li>
-                            <li><a class="dropdown-item" id="user-info-text" href="#">Your Info</a></li>
-                            <li><a class="dropdown-item" id="user-help-text" href="#">Help</a></li>
-                            <li><a class="dropdown-item" id="user-setting-text" href="#">Setting</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" id="user-signout-text" href="#"><i class="bi bi-box-arrow-in-right"></i> Sign Out</a></li>
+                            <?php if($username == "Guest"){?>
+                                <li><a class="dropdown-item" id="user-signin-text" href="../user-registration/login.php">Sign In</a></li>
+                                <li><a class="dropdown-item" id="user-signin-text" href="../user-registration/user-registration.php"><b>Sign Up Now</b></a></li>
+                            <?php }?>
+                            
+                            
+                            <?php if($username != "Guest"){?>
+                                <li><a class="dropdown-item" id="user-info-text" href="#">Your Info</a></li>
+                                <li><a class="dropdown-item" id="user-help-text" href="#">Help</a></li>
+                                <li><a class="dropdown-item" id="user-setting-text" href="#">Setting</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" id="user-signout-text" href="../user-registration/logout.php"><i class="bi bi-box-arrow-in-right"></i> Sign Out</a></li>
+                            <?php }?>
                         </ul>
                     </div>
 
@@ -117,7 +137,10 @@
           <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <h1>This is a title</h1>
+    <br>
+    <br>
+
+    <h1>Top Sale</h1>
 
     <div class="container">
         <div class="row product-row">
@@ -158,8 +181,8 @@
                 <div class="card" style="width: 15rem;">
                     <img src="../img/among-us-symbol.png" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title fw-bold">The even more Sus</h5>
-                        <p class="card-text">$129</p>
+                        <h5 class="card-title fw-bold">The even more Sussier</h5>
+                        <p class="card-text">$145</p>
                         <a href="#" class="btn btn-primary">Add now</a>
                         <a href="#" class="btn ">Check</a>
                     </div>
