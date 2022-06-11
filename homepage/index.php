@@ -24,11 +24,17 @@ if (isset($_SESSION["username"])) {
     <link rel="stylesheet" href="app/scss/style.css">
     <script src="app/js/script.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <?php
+        // require functions.php file
+        require ('../product/lib/functions.php');
+    ?>
 </head>
 
 
 <body>
-
+    <?php
+        $product_list
+    ?>
     <!--Below is to show the navigation bar-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -141,55 +147,24 @@ if (isset($_SESSION["username"])) {
     <br>
 
     <h1>Top Sale</h1>
-
     <div class="container">
         <div class="row product-row">
-            <div class="col-6 col-sm-3">
-                <div class="card" style="width: 15rem;">
-                    <img src="../img/among-us-symbol.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">The Sus</h5>
-                        <p class="card-text">$99</p>
-                        <a href="#" class="btn btn-primary">Add now</a>
-                        <a href="#" class="btn ">Check</a>
+            <?php foreach ($product_list as $item) { ?>
+                <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 15rem;">
+                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <a href="#" class="btn btn-primary">Add now</a>
+                            <a href="#" class="btn ">Check</a>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3">
-                <div class="card" style="width: 15rem;">
-                    <img src="../img/among-us-symbol.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">The Sussier</h5>
-                        <p class="card-text">$109</p>
-                        <a href="#" class="btn btn-primary">Add now</a>
-                        <a href="#" class="btn ">Check</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3">
-                <div class="card" style="width: 15rem;">
-                    <img src="../img/among-us-symbol.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">The even more Sus</h5>
-                        <p class="card-text">$129</p>
-                        <a href="#" class="btn btn-primary">Add now</a>
-                        <a href="#" class="btn ">Check</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-6 col-sm-3">
-                <div class="card" style="width: 15rem;">
-                    <img src="../img/among-us-symbol.png" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title fw-bold">The even more Sussier</h5>
-                        <p class="card-text">$145</p>
-                        <a href="#" class="btn btn-primary">Add now</a>
-                        <a href="#" class="btn ">Check</a>
-                    </div>
-                </div>
-            </div>
+                </div>   
+        <?php } ?>
         </div>
     </div>
+    
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
