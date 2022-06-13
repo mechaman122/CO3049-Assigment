@@ -207,11 +207,20 @@ html{
     font-weight: bold;
 }
 
+.product-sub{
+    margin-left: 10px;
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float:left;
+
+}
+
 .product-name-bottom{
     color: red;
 }
 .picture_bottom{
-    width:15%;
+    width:11%;  
 }
 
 .picture_title .product-intro {
