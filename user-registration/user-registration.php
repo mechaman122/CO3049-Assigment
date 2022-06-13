@@ -6,16 +6,21 @@ if (! empty($_POST["signup-btn"])) {
     $registrationResponse = $member->registerMember();
 }
 ?>
-<HTML>
-<HEAD>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <TITLE>User Registration</TITLE>
 <link href="assets/css/phppot-style.css" type="text/css"
 	rel="stylesheet" />
 <link href="assets/css/user-registration.css" type="text/css"
 	rel="stylesheet" />
 <script src="vendor/jquery/jquery-3.3.1.js" type="text/javascript"></script>
-</HEAD>
-<BODY>
+<link rel="stylesheet" href="/app/scss/style.css">
+<script src="/app/js/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
 	<div class="phppot-container">
 		<div class="sign-up-container">
 			<div class="login-signup">
@@ -42,6 +47,7 @@ if (! empty($_POST["signup-btn"])) {
 				<?php
     }
     ?>
+    
 				<div class="error-msg" id="error-msg"></div>
 					<div class="row">
 						<div class="inline-block">
@@ -145,6 +151,6 @@ function signupValidation() {
 	}
 	return valid;
 }
-</script>
-</BODY>
-</HTML>
+    </script>
+    </body>
+</html>
