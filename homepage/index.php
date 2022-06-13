@@ -51,7 +51,7 @@ if (isset($_SESSION["username"])) {
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="/homepage/index.php">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="#">About</a>
