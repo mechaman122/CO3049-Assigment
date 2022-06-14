@@ -38,8 +38,8 @@ if (isset($_SESSION["username"])) {
         $product_list
     ?>
     <!--Below is to show the navigation bar-->
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
             <!--Below is to show left side of the navigation bar-->
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
