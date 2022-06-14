@@ -123,7 +123,7 @@ h1:after {
     box-sizing: border-box;
 }
 
-html{
+ html{
     font-family: "Lato",sans-serif;
 }
 
@@ -162,82 +162,150 @@ html{
     cursor: pointer;
 }
 
-/* nut them vao gio hang nut buy  */
-.picture_title .buy{
-    margin-top: 25px;color: #FFF;
-    background-color: #000;
-    text-decoration: none;
-    padding: 11px 16px;
-    display: inline-block;
-    margin-top: 25px;
+
+
+/*----------- Product */
+.product{
+    padding: 100px 0;
 }
 
-.picture_title .buy:hover{
-    color: #000;
-    background-color: #ccc;
-}
-/* phan san pham */
-
-.product-infor{
-    height:500px;
-    width:100%;
+.product-content{
     display: flex;
-    
-}   
-
-.product-intro li{
-    padding-top: 20px; 
-    font-weight: 400;
-    font-size: 18px;
 }
 
-.product-img-right img{ 
-    height:250px;   
-
+.product-content-left{
+    width:50%;
+    display: flex;
 }
 
-.product-infor{
+.product-content-left-big-img{
+    width: 80%;
+    padding-right: 20px;
+}
+
+.product-content-left-big-img img{
     width: 100%;
 }
 
+.product-content-left-small-img{
+    width: 20%;
+}
+.product-content-left-small-img img{
+    width: 100%;
+}
+
+.product-content-right{
+    width: 50%;
+    padding-left: 20px;
+}
+
 .product-name{
-    display: flex;
-    text-align: left;
-    font-size: 40px;
+    font-family: var(--main-text-font);
+    font-size: 30px;
     font-weight: bold;
 }
 
-.product-sub{
-    margin-left: 10px;
+.product-content-right-product-price{
+    margin: 12px 0;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: var(--main-text-font);
+}
+.product-content-right-product-color img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.product-content-right-product-color-img{
+    height: 40px;
+    width: 40px;
+    border: 1px solid #333;
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    float:left;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 12px 0;
+}
+
+.size span{
+    display:inline-block;
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    margin: 12px 10px 12px 0;
+    cursor: pointer;
+}
+
+.quantity{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.quantity input{
+    width: 35px;
+    padding-left: 3px;
+}
+
+.product-content-right-product-button button{
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: 20px 0 12px;
+    transition: all 0.3 ease;
+}
+
+.product-content-right-product-button button:first-child{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid black ;
+    cursor: pointer;
+}
+
+.product-content-right-product-button button:first-child p{
+    margin-top: 15px;
+}
+
+.product-content-right-product-button button:first-child:hover{
+    background-color: black;
+    color:#fff;
 
 }
 
-.product-name-bottom{
-    color: red;
-}
-.picture_bottom{
-    width:11%;  
-}
-
-.picture_title .product-intro {
-    list-style: none;
-    padding: 15px;
-    letter-spacing: 1px;
+.product-content-right-product-button button:last-child{
+    border: 2px solid violet;
+    color: #000;
+    background-color: #fff;
+    cursor: pointer;
 }
 
-
-.bottom {
-    padding-left: 50px;
-    font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
-
+.product-content-right-product-button button:last-child:hover{
+    background-color: violet;
+    color:#000;
 }
 
-.bottom td{
-    padding-top: 10px;
-    font-size: 16px;
+.product-content-right-bottom{
+    position: relative;
+    padding-top: 40px;
+    border-top: 1px solid #ddd;
+}
+.product-content-right-bottom-top{
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    top: -15px;
+    left: 50%;
+    border-radius: 50%;
+    transform: translateX(-50%);
+}
+
+.product-content-bottom-infor{
+    font-size: 30px;
+    font-family: var(--main-text-font);
+    font-weight: bold;
 }
