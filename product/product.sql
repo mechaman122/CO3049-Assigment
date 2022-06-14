@@ -14,15 +14,16 @@ CREATE TABLE `tbl_product` (
   `item_price` double(10,2) NOT NULL,
   `item_image` varchar(255) NOT NULL,
   `item_cate` varchar(255) NOT NULL,
-  `item_nsx` varchar(255) DEFAULT NULL
+  `item_nsx` varchar(255) DEFAULT NULL,
+  `item_about` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `product`
 --
 
-INSERT INTO `tbl_product` (`item_id`, `item_name`, `item_price`, `item_image`,`item_cate`, `item_nsx`) VALUES
-(1, 'The Sus', 99.00, '../img/among-us-symbol.png','clothes', '2020'), -- NOW()
+INSERT INTO `tbl_product` (`item_id`, `item_name`, `item_price`, `item_image`,`item_cate`, `item_nsx`,`item_about`) VALUES
+(1, 'The Sus', 99.00, '../img/among-us-symbol.png','clothes', '2020','Sếch toi'), -- NOW()
 (2, 'The Sussier', 109.00, '../img/among-us-symbol.png','accessory', '2021'),
 (3, 'The more Sus', 129.00, '../img/among-us-symbol.png','figure', '2022'),
 (4, 'Ultimate Sus', 135.00, '../img/among-us-symbol.png','gaming gear', '2019'),
