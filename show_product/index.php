@@ -112,40 +112,10 @@ if (isset($_SESSION["username"])) {
         </nav>
     </div>
 
-    <!--Below is to show carousel to show banner-->
-    <div id="banner-carousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" style="width: 100vw;">
-            <div class="carousel-item active">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#banner-carousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#banner-carousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <br>
-    <br>
-
     <h1>Top Sale</h1>
     <div class="container">
         <div class="row product-row">
-            <?php foreach ($product_list as $item) { ?>
+            <?php foreach(array_slice($product_list,0,8)as $item) { ?>
                 <div class="col-6 col-sm-3">
                     <div class="card" style="width: 15rem;">
                         <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
