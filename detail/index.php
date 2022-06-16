@@ -19,11 +19,11 @@ if (isset($_SESSION["username"])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head >
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Product Detail</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../app/scss/style.css">
@@ -36,7 +36,7 @@ if (isset($_SESSION["username"])) {
 </head>
 
 
-<body>
+<body style="background-image:url(../img/wrb_bg.jpg)">
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
@@ -51,13 +51,13 @@ if (isset($_SESSION["username"])) {
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color:rgb(142, 216, 229)">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#" style="color:rgb(142, 216, 229)">Products</a>
+                            <a class="nav-link fw-bold" href="../show_product/index.php" style="color:rgb(142, 216, 229)">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#"style="color:rgb(142, 216, 229)">More Infomation</a>
+                            <a class="nav-link fw-bold" href="#" style="color: rgb(211, 230, 89);">Products Detail</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -116,32 +116,34 @@ if (isset($_SESSION["username"])) {
         <div class="row">
                 <div class="row">
                     <div class="col-md-6">
-                        <img src="../img/item-1.jpg" width ="300px; height:400px;" alt="item-1">
+                        <img src="<?php echo $product_list[$params['item_id']]['item_image'] ?>" width ="400px;" height="500px;" alt="item-1">
                     </div>
-                    <div class="col-md-6" style="margin-top: 30px; font-size: 20px; letter-spacing:1px;">
-                        <ul style="line-height:35px;" class="information">
-                            <li>Product name : <?php echo $product_list[$params['item_id']]['item_name'] ?></li>  <!-- tên sản phẩm  -->
-                            <li>Price: $<?php echo $product_list[$params['item_id']]['item_price'] ?></li> <!-- giá tiền -->
-                            <li>Category: <?php echo $product_list[$params['item_id']]['item_cate'] ?></li> <!--cate -->
-                            <li>Year of production: <?php echo $product_list[$params['item_id']]['item_nsx'] ?></li><!-- ngày sản xuất -->
-                            <li>About this product: <?php echo $product_list[$params['item_id']]['item_about'] ?></li> <!-- about -->
-                            <li class="quantity">Số Lượng 
-                            <input type="number" min="0" value="1" >
-                            </li> <!-- quantity -->                            
-                            <li><button class="btn btn-outline-success">Thêm Vào Giỏ Hàng</button></li>
+                    <div class="col-md-6" style="margin-top: 30px; font-size: 20px; letter-spacing:1px;" >
+                        <ul style="line-height:35px;" class="information" >
+                            <li style=" color: aliceblue;">Product name : <?php echo $product_list[$params['item_id']]['item_name'] ?></li>  <!-- tên sản phẩm  -->
+                            <li style=" color: aliceblue;">Price: $<?php echo $product_list[$params['item_id']]['item_price'] ?></li> <!-- giá tiền -->
+                            <li style=" color: aliceblue;">Category: <?php echo $product_list[$params['item_id']]['item_cate'] ?></li> <!--cate -->
+                            <li style=" color: aliceblue;">Year of production: <?php echo $product_list[$params['item_id']]['item_nsx'] ?></li><!-- ngày sản xuất -->
+                            <li style=" color: aliceblue;">About this product: <?php echo $product_list[$params['item_id']]['item_about'] ?></li> <!-- about -->
+                            <li class="quantity" style=" color: aliceblue;">Quantity: <?php echo $product_list[$params['item_id']]['item_qty']?>
+                            </li>                       
+                            <li><button class="btn btn-outline-success">Add To Cart</button></li>
                         </ul>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-12" >
-                        <h4>Sản phẩm liên quan</h4>
+                        <h4>Related Products</h4>
                         <hr>
-                        <img src="../img/item-2.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
-                        <img src="../img/item-3.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
-                        <img src="../img/item-4.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
-                        <img src="../img/item-5.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
-                        <img src="../img/item-6.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
-                        <img src="../img/item-7.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
+                        <?php $i=0;
+                        foreach($product_list as $item){
+                            if ($item['item_cate']==$product_list[$params['item_id']]['item_cate']){
+                               ?>
+                               <a href="../detail/index.php?item_id=<?php echo $link=$item['item_id']-1;?>"> <img src="<?php echo $item['item_image'] ?>" style="width:100px; height:110px;"></a>
+                           <?php
+                            $i++;   
+                        }
+                        }?>
                     </div>
                 </div>                   
         </div>

@@ -33,7 +33,7 @@ if (isset($_SESSION["username"])) {
 </head>
 
 
-<body>
+<body style="background-image:url(../img/wrb_bg.jpg)">
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
@@ -51,10 +51,7 @@ if (isset($_SESSION["username"])) {
                             <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#" style="color:rgb(142, 216, 229)">Products</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#"style="color:rgb(142, 216, 229)">More Infomation</a>
+                            <a class="nav-link fw-bold" href="../show_product/index.php" style="color:rgb(142, 216, 229)">Products</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -139,26 +136,29 @@ if (isset($_SESSION["username"])) {
     <br>
     <br>
 
-    <h1>Top Sale</h1>
-    <div class="container">
-        <div class="row product-row">
-            <?php foreach ($product_list as $item) { ?>
-                <div class="col-6 col-sm-3">
-                    <div class="card" style="width: 15rem;">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
+    <br><br>
+         <h1 style="color: white;">You May like</h1>  
+         <div class="container">
+            <div class="row product-row">
+                <?php for($i=0;$i<20;$i++){
+                $j=rand(0,60);
+                 $item=$product_list[$j];?><br>
+                 <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold"><?php echo $item['item_name'] ?></h5>
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
-                </div>   
-        <?php } ?>
-        </div>
-    </div>
+                    <br>
+                </div> 
+                <?php } ?>
+            </div>
+         </div>    
 
-    
     
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

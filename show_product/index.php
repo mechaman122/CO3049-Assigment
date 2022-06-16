@@ -49,14 +49,12 @@ if (isset($_SESSION["username"])) {
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color:rgb(142, 216, 229)">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#" style="color:rgb(142, 216, 229)">Products</a>
+                            <a class="nav-link fw-bold" href="index.php"  style="color: rgb(211, 230, 89);">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link fw-bold" href="#"style="color:rgb(142, 216, 229)">More Infomation</a>
-                        </li>
+
                     </ul>
                     <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox">
@@ -122,7 +120,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item['item_id']?>" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>
@@ -145,7 +143,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>
@@ -168,7 +166,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>
@@ -191,7 +189,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>
@@ -217,7 +215,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>

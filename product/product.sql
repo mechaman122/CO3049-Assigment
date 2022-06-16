@@ -27,7 +27,7 @@ INSERT INTO `tbl_product` (`item_id`, `item_name`, `item_price`, `item_image`,`i
 (1, 'Zoofy Among Us Red', 33.00, '../img/item-1.jpg','toy', '2020','Size: Standard
 \nPolyester fibers, all new materials
 Plush figure has devil horns
-Measures 12" tall lmao
+Measures 12" tall
 Officially licensed',10), -- NOW()
 (2, 'Zoofy Among Us Pink', 33.00, '../img/item-2.jpg','toy', '2021','Size: Standard
 Polyester fibers, all new materials
