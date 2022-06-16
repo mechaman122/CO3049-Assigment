@@ -20,7 +20,7 @@ if (isset($_SESSION["username"])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Showcase</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../app/scss/style.css">
@@ -116,10 +116,10 @@ if (isset($_SESSION["username"])) {
         <div class="row product-row">
             <?php foreach(array_slice($product_list,0,8)as $item) { ?>
                 <div class="col-6 col-sm-3">
-                    <div class="card" style="width: 15rem;">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
+                    <div class="card" style="width: 15rem;height: 500px">
+                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 350px;">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold"><?php echo $item['item_name'] ?></h5>
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
                             <a href="#" class="btn ">Check</a>
@@ -131,24 +131,26 @@ if (isset($_SESSION["username"])) {
     </div>
     
     <br><br>
-    <h1></h1>
-    <div class="container">
-        <div class="row product-row">
-            <?php foreach(array_slice($product_list,0,8)as $item) { ?>
-                <div class="col-6 col-sm-3">
-                    <div class="card" style="width: 15rem;">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
+         <h1>Random</h1>  
+         <div class="container">
+            <div class="row product-row">
+                <?php for($i=0;$i<4;$i++){
+                $j=rand(0,50);
+                 $item=$product_list[$j];?><br>
+                 <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 15rem;height: 500px">
+                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 350px;">
                         <div class="card-body">
-                            <h5 class="card-title fw-bold"><?php echo $item['item_name'] ?></h5>
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
                             <a href="#" class="btn ">Check</a>
                         </div>
                     </div>
-                </div>   
-        <?php } ?>
-        </div>
-    </div>
+                </div> 
+                <?php }?>
+            </div>
+         </div>    
     
     
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
