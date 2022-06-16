@@ -23,7 +23,7 @@ CREATE TABLE `tbl_product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `tbl_product` (`item_id`, `item_name`, `item_price`, `item_image`,`item_cate`, `item_nsx`,`item_about`) VALUES
+INSERT INTO `tbl_product` (`item_id`, `item_name`, `item_price`, `item_image`,`item_cate`, `item_nsx`,`item_about`,`item_qty`) VALUES
 (1, 'Zoofy Among Us Red', 33.00, '../img/item-1.jpg','toy', '2020','Size: Standard
 Polyester fibers, all new materials
 Plush figure has devil horns
