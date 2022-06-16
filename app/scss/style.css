@@ -137,3 +137,12 @@ h1:after {
 ul li {
     list-style: none;
 }
+
+.information li {
+    margin: 10px 0;
+}
+
+.quantity input {
+    width: 40px;
+    text-align: center;
+}

@@ -111,22 +111,22 @@ if (isset($_SESSION["username"])) {
 <!-- Details -->
     <div class="container">
         <div class="row">
-            <article class="col-sm-9">
                 <div class="row">
-                    <div class="col-sm-5">
-                        <img src="../img/item-1.jpg" width ="300px;" alt="item-1">
+                    <div class="col-md-6">
+                        <img src="../img/item-1.jpg" width ="300px; height:400px;" alt="item-1">
                     </div>
-                    <div class="col-sm-7" style="margin-top: 20px; font-size: 18px;">
-                        <ul style="line-height:35px;">
+                    <div class="col-md-6" style="margin-top: 30px; font-size: 20px; letter-spacing:1px;">
+                        <ul style="line-height:35px;" class="information">
                             <li>Tên sản phẩm : Among Us</li>  <!-- tên sản phẩm  -->
                             <li>Giá tiền: 100$</li> <!-- giá tiền -->
                             <li>Loại: Đồ chơi</li> <!--cate -->
                             <li>Ngày Sản Xuất: 2022</li><!-- ngày sản xuất -->
                             <li>Chi tiết sản phẩm</li> <!-- about -->
-                            <li>Số Lượng 
-                            <input type="number" min="0" value="1">
+                            <li class="quantity">Số Lượng 
+                            <input type="number" min="0" value="1" >
                             </li> <!-- quantity -->                            
-                            <button class="btn btn-outline-success">Thêm Vào Giỏ Hàng</button>
+                            <li><button class="btn btn-outline-success">Thêm Vào Giỏ Hàng</button></li>
+                            <li>Thông tin sản phẩm</li>  <!-- Thông tin sản phẩm -->
                         </ul>
                     </div>
                 </div>
@@ -141,10 +141,9 @@ if (isset($_SESSION["username"])) {
                         <img src="../img/item-6.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
                         <img src="../img/item-7.jpg" style="width:100px; height:110px; padding: 0 20px;" alt="">
                     </div>
-                </div>
-            </article>
+                </div>                   
         </div>
-    </div>    
+    </div>
 
    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="col-md-4 d-flex align-items-center">
