@@ -129,13 +129,13 @@ if (isset($_SESSION["username"])) {
         <?php } ?>
         </div>
     </div>
+    
     <br><br>
-
+    <h1></h1>
     <div class="container">
         <div class="row product-row">
-        <?php foreach ($product_list as $item){ ?>
+            <?php foreach(array_slice($product_list,0,8)as $item) { ?>
                 <div class="col-6 col-sm-3">
-                <?php   if ($item["item_cate"]=="clothes"){?>
                     <div class="card" style="width: 15rem;">
                         <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
                         <div class="card-body">
@@ -146,10 +146,10 @@ if (isset($_SESSION["username"])) {
                         </div>
                     </div>
                 </div>   
-        <?php ?>
+        <?php } ?>
         </div>
     </div>
-    <?php }}?>
+    
     
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
