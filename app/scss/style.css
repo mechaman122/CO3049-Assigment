@@ -130,3 +130,10 @@ h1:after {
 .oddRow:hover {
     background-color: #ffef46;
 }
+
+
+/* detail */
+
+ul li {
+    list-style: none;
+}
