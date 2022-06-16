@@ -122,10 +122,46 @@ Perfect for any Among Us fan.',10),
 (47, 'Among Us Collectible Figures (Crow)', 50.00, '../img/item-47.jpg','figure', '2022','Officially licensed Among Us Collectible Figures.',10),
 (48, 'Among Us Collectible Figures (Devil w/ Gun)', 50.00, '../img/item-48.jpg','figure', '2022','Officially licensed Among Us Collectible Figures.',10),
 (49, 'Among Us Collectible Figures (Brown w/ Mask)', 50.00, '../img/item-49.jpg','figure', '2022','Officially licensed Among Us Collectible Figures.',10),
-(50, 'Among Us Mini Figures', 10.00, '../img/item-50.jpg','figure', '2022','Officially licensed Among Us Mini Figures.',10);
-
-
-
+(50, 'Among Us Mini Figures', 10.00, '../img/item-50.jpg','figure', '2022','Officially licensed Among Us Mini Figures.',10),
+(51, 'Among Us T-Shirt Among Us Short Sleeve - Mens Among Us Game T-Shirt - Among Us Mens Fashion Shirt - Among Us Run Tee', 30.00, '../img/item-51.jpg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(52, 'Among Us Cotton T-Shirt Among Us Short Sleeve Youth/Children/Adult T Shirt Cartoon Characters 3D Print Among Us Short Sleeve for Boys Girls', 30.00, '../img/item-52.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(53, 'Tee Top Game Print with The Game Among Us T-Shirts for Adult Men, Best Gift for Among Us Fans', 30.00, '../img/item-53.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(54, 'Among Us Shirt | Amoung Us Game T Shirts Kids Tshirt Adult Tee Family', 30.00, '../img/item-54.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(55, 'Among Us T-Shirt Among Us Short Sleeve Game Among Us 3D Printed T-Shirts for Unisex Adult and Youth Boys', 30.00, '../img/item-55.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(56, 'Among Us Cotton Crew T-Shirt Among Us Short Sleeve Youth/Children/Adult T Shirt Cartoon Characters 3D Print Among Us Short Sleeve for Boys Girls', 30.00, '../img/item-56.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(57, 'Among Us Boys/Girls Trust No One! T-Shirt', 30.00, '../img/item-57.jpeg','clothes', '2022','Material: 4-way stretch t-shirt.
+Thermal transfer printing No peeling.
+Make a difference, express your personality and full of style.
+Can wear to go out with friends, with the team…
+Both Men and Women can wear it.',10),
+(58, 'Among Us Popular Game Theme Tshirt Gaming Youth Boys Girls Cosplay Among Us Tshirts 3D Print Game Character Short Sleeve Short Sleeve Casual Tees Among Us Clothing for Game Fans', 30.00, '../img/item-58.jpeg','clothes', '2022','Stylish and exquisite popular game Among Us short sleeve shirt, show your love for your favorite gaming series !
+The Among Us character graphic tee made of 100% high-quality cotton material and includes a short sleeve design that looks great. The merchandise features a bright, bold graphic, professionally printed for long-lasting color and print quality',10),
+(59, 'Cosplay Life Among Us 3D Print Anime Mash Up Inspired Tshirts - Short Sleeve Crew Neck Cotton T-Shirts For Unisex Adult (Grey, M)', 30.00, '../img/item-59.jpeg','clothes', '2022','The Cosplay Life 3D Print crew neck tshirt is definitely a must for every true fan of the beloved video game and anime series, adding a colorful and fun vibe to your everyday outfits! Made with a special fabric blend perfect for keeping you warm on chilly evenings, with a comfortable hood and double kangaroo pockets, this anime shirt is suitable for Halloween, series marathon, school wear, cosplay, conventions, festivals or themed events!',10),
+(60, 'Cosplay Life Among Us 3D Print Anime Mash Up Inspired Tshirts - Short Sleeve Crew Neck Cotton T-Shirts For Unisex Adult (Blue, XS)', 30.00, '../img/item-60.jpeg','clothes', '2022','he Cosplay Life 3D Print crew neck tshirt is definitely a must for every true fan of the beloved video game and anime series, adding a colorful and fun vibe to your everyday outfits! Made with a special fabric blend perfect for keeping you warm on chilly evenings, with a comfortable hood and double kangaroo pockets, this anime shirt is suitable for Halloween, series marathon, school wear, cosplay, conventions, festivals or themed events!',10);
 --
 -- Indexes for dumped tables
 --
