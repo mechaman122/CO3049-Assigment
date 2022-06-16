@@ -34,9 +34,6 @@ if (isset($_SESSION["username"])) {
 
 
 <body>
-    <?php
-        $product_list
-    ?>
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
@@ -160,6 +157,8 @@ if (isset($_SESSION["username"])) {
         <?php } ?>
         </div>
     </div>
+
+    
     
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">

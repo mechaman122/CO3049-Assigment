@@ -34,9 +34,7 @@ if (isset($_SESSION["username"])) {
 
 
 <body>
-    <?php
-        $product_list
-    ?>
+
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
@@ -112,6 +110,7 @@ if (isset($_SESSION["username"])) {
         </nav>
     </div>
 
+    <br><br>
     <h1>Top Sale</h1>
     <div class="container">
         <div class="row product-row">
@@ -130,8 +129,28 @@ if (isset($_SESSION["username"])) {
         <?php } ?>
         </div>
     </div>
-    
+    <br><br>
 
+    <div class="container">
+        <div class="row product-row">
+        <?php foreach ($product_list as $item){ ?>
+                <div class="col-6 col-sm-3">
+                <?php   if ($item["item_cate"]=="clothes"){?>
+                    <div class="card" style="width: 15rem;">
+                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <a href="#" class="btn btn-primary">Add now</a>
+                            <a href="#" class="btn ">Check</a>
+                        </div>
+                    </div>
+                </div>   
+        <?php ?>
+        </div>
+    </div>
+    <?php }}?>
+    
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
