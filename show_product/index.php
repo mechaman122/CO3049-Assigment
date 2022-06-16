@@ -33,7 +33,7 @@ if (isset($_SESSION["username"])) {
 </head>
 
 
-<body>
+<body style="background-image:url(../img/wrb_bg.jpg)">
 
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
@@ -111,13 +111,13 @@ if (isset($_SESSION["username"])) {
     </div>
 
     <br><br>
-    <h1>Top Sale</h1>
-    <div class="container">
+    <h1 style="color: white;">Top Sale</h1>
+    <div class="container py-4">
         <div class="row product-row">
             <?php foreach(array_slice($product_list,0,8)as $item) { ?>
                 <div class="col-6 col-sm-3">
-                    <div class="card" style="width: 15rem;height: 500px">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 350px;">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 300px;">
                         <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
@@ -125,21 +125,22 @@ if (isset($_SESSION["username"])) {
                             <a href="#" class="btn ">Check</a>
                         </div>
                     </div>
+                    <br>
                 </div>   
         <?php } ?>
         </div>
     </div>
-    
     <br><br>
-         <h1>Random</h1>  
-         <div class="container">
+
+
+        <h1 style="color: white;">Clothes</h1><br>
+        <div class="container"> 
             <div class="row product-row">
-                <?php for($i=0;$i<4;$i++){
-                $j=rand(0,50);
-                 $item=$product_list[$j];?><br>
-                 <div class="col-6 col-sm-3">
-                    <div class="card" style="width: 15rem;height: 500px">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 350px;">
+                <?php foreach($product_list as $item){
+                    if($item['item_cate']=="clothes"){ ?>
+                         <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
                         <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
@@ -147,12 +148,87 @@ if (isset($_SESSION["username"])) {
                             <a href="#" class="btn ">Check</a>
                         </div>
                     </div>
+                    <br>
                 </div> 
-                <?php }?>
+                    <?php }
+                }
+                ?>
+            </div>
+        </div>
+        <br><br>
+        <h1 style="color: white;">Comics</h1><br>
+        <div class="container"> 
+            <div class="row product-row">
+                <?php foreach($product_list as $item){
+                    if($item['item_cate']=="comic"){ ?>
+                         <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <a href="#" class="btn btn-primary">Add now</a>
+                            <a href="#" class="btn ">Check</a>
+                        </div>
+                    </div>
+                    <br>
+                </div> 
+                    <?php }
+                }
+                ?>
+            </div>
+        </div>
+    <br><br>
+        <h1 style="color: white;">Toys</h1><br>
+        <div class="container"> 
+            <div class="row product-row">
+                <?php foreach($product_list as $item){
+                    if($item['item_cate']=="toy"){ ?>
+                         <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <a href="#" class="btn btn-primary">Add now</a>
+                            <a href="#" class="btn ">Check</a>
+                        </div>
+                    </div>
+                    <br>
+                </div> 
+                    <?php }
+                }
+                ?>
+            </div>
+        </div>
+    
+
+    <br><br>
+         <h1 style="color: white;">Random</h1>  
+         <div class="container">
+            <div class="row product-row">
+                <?php for($i=0;$i<8;$i++){
+                $j=rand(0,50);
+                 $item=$product_list[$j];?><br>
+                 <div class="col-6 col-sm-3">
+                    <div class="card" style="width: 280px ;height: 450px">
+                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <a href="#" class="btn btn-primary">Add now</a>
+                            <a href="#" class="btn ">Check</a>
+                        </div>
+                    </div>
+                    <br>
+                </div> 
+                <?php } ?>
             </div>
          </div>    
+
+
     
-    
+        
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
             <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
