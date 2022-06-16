@@ -9,6 +9,9 @@ if (isset($_SESSION["username"])) {
     $username = "Guest";
 }
 
+    $url = $_SERVER['REQUEST_URI']; 
+    $url_components = parse_url($url);
+    parse_str($url_components['query'], $params);
 ?>
 
 
@@ -117,16 +120,15 @@ if (isset($_SESSION["username"])) {
                     </div>
                     <div class="col-md-6" style="margin-top: 30px; font-size: 20px; letter-spacing:1px;">
                         <ul style="line-height:35px;" class="information">
-                            <li>Tên sản phẩm : Among Us</li>  <!-- tên sản phẩm  -->
-                            <li>Giá tiền: 100$</li> <!-- giá tiền -->
-                            <li>Loại: Đồ chơi</li> <!--cate -->
-                            <li>Ngày Sản Xuất: 2022</li><!-- ngày sản xuất -->
-                            <li>Chi tiết sản phẩm</li> <!-- about -->
+                            <li>Product name : <?php echo $product_list[$params['item_id']]['item_name'] ?></li>  <!-- tên sản phẩm  -->
+                            <li>Price: $<?php echo $product_list[$params['item_id']]['item_price'] ?></li> <!-- giá tiền -->
+                            <li>Category: <?php echo $product_list[$params['item_id']]['item_cate'] ?></li> <!--cate -->
+                            <li>Year of production: <?php echo $product_list[$params['item_id']]['item_nsx'] ?></li><!-- ngày sản xuất -->
+                            <li>About this product: <?php echo $product_list[$params['item_id']]['item_about'] ?></li> <!-- about -->
                             <li class="quantity">Số Lượng 
                             <input type="number" min="0" value="1" >
                             </li> <!-- quantity -->                            
                             <li><button class="btn btn-outline-success">Thêm Vào Giỏ Hàng</button></li>
-                            <li>Thông tin sản phẩm</li>  <!-- Thông tin sản phẩm -->
                         </ul>
                     </div>
                 </div>

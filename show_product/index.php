@@ -122,7 +122,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="#" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $item['item_id']?>" class="btn ">Check</a>
                         </div>
                     </div>
                     <br>
