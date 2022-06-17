@@ -25,7 +25,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase</title>
+    <title>Product List</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../app/scss/style.css">
@@ -39,7 +39,6 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
 
 
 <body style="background-image:url(../img/wrb_bg.jpg)">
-
     <!--Below is to show the navigation bar-->
     <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
@@ -57,9 +56,13 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                             <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color:rgb(142, 216, 229)">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="index.php?search=.*"  style="color: rgb(211, 230, 89);">Products</a>
+                            <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color: rgb(211, 230, 89);">Products</a>
                         </li>
-
+                        <?php if($username == "admin1") {?>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="../admin/index.php" style="color:rgb(142, 216, 229)">AdminDashBoard</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <form method="POST" action="" class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox" name="search">
@@ -99,15 +102,15 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
 
                     <!--Below is the code to show user logo (with dropdown) and cart info (with dropdown)-->
 
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="user-cart-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      
+
+                    <form action="#" class="font-size-14 font-rale">
+                        <a href="../Cart/index.php" class="py-2 rounded-pill color-primary-bg">
                             <img src="../img/cart-icon.jpg" alt="cart icon" width="40px" height="auto">
+                            <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
+                            <span class="px-3 py-2 rounded-pill text-dark bg-light"><?php echo count($cart_list); ?></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end p-2" style="max-width: 250px;" aria-labelledby="user-cart-dropdown">
-                            <li><a class="dropdown-item" id="user-cart-viewall" href="#"><i class="bi bi-view-stacked"></i> View Cart (10)</a></li>
-                            <li><a class="dropdown-item active" id="user-checkout" href="#"><i class="bi bi-arrow-right-square"></i> Proceed to Checkout</a></li>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -130,13 +133,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                                     ?>
                                         <div class="col-6 col-sm-3">
                                             <div class="card" style="width: 280px ;height: 450px">
-                                                <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 300px;">
-                                                <div class="card-body">
-                                                    <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
-                                                    <p class="card-text"><?php echo $item['item_price'] ?></p>
-                                                    <a href="#" class="btn btn-primary">Add now</a>
-                                                    <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
-                                                </div>
+                                            <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                            <div class="card-body">
+                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
+                            <p class="card-text"><?php echo $item['item_price'] ?></p>
+                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
+                            </div>
+                            </form>
                                             </div>
                                             <br>
                                         </div>   
@@ -158,13 +165,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
             <?php foreach(array_slice($product_list,0,8)as $item) { ?>
                 <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">
-                        <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 300px;">
-                        <div class="card-body">
+                    <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                            <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
-                            <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
-                        </div>
+                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
+                            </div>
+                            </form>
                     </div>
                     <br>
                 </div>   
@@ -204,13 +215,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                     if($item['item_cate']=="comic"){ ?>
                          <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">
-                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
-                        <div class="card-body">
+                    <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                            <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
-                            <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
-                        </div>
+                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
+                            </div>
+                            </form>
                     </div>
                     <br>
                 </div> 
@@ -227,13 +242,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                     if($item['item_cate']=="toy"){ ?>
                          <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">
-                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
-                        <div class="card-body">
+                    <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                            <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
-                            <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
-                        </div>
+                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
+                            </div>
+                            </form>
                     </div>
                     <br>
                 </div> 
@@ -253,13 +272,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                  $item=$product_list[$j];?><br>
                  <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">
-                        <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
-                        <div class="card-body">
+                    <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
+                            <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
-                            <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
-                        </div>
+                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
+                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
+                            </div>
+                            </form>
                     </div>
                     <br>
                 </div> 
@@ -279,6 +302,9 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
         </div>
     </footer>
     <button onclick="topFunction()" id="myBtn" title="Go to top">BACK TO TOP</button>
+    <?php if(isset($_POST['addToCart']) && !empty($_POST['addToCart'])){
+    $cart->addToCart($_POST['addToCart']);
+}?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
 

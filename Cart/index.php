@@ -27,7 +27,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Your Cart</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../app/scss/style.css">
@@ -55,14 +55,17 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color: rgb(211, 230, 89);">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color:rgb(142, 216, 229)">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color:rgb(142, 216, 229)">Products</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color: rgb(211, 230, 89);">Your cart</a>
+                        </li>
                         <?php if($username == "admin1") {?>
                             <li class="nav-item">
-                                <a class="nav-link fw-bold" href="../admin/index.php" style="color:rgb(142, 216, 229)">AdminDashBoard</a>
+                                <a class="nav-link fw-bold" href="../admin/index.php"  >AdminDashBoard</a>
                             </li>
                         <?php } ?>
                     </ul>
@@ -114,9 +117,10 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
             </div>
         </nav>
     </div>
+    
     <section id="cart" class="py-3 mb-5">
             <div class="container-fluid w-75">
-            <h5 class="font-baloo font-size-20">Shopping Cart</h5>
+            <h5 class="font-baloo font-size-20" style=" color: aliceblue;">Shopping Cart</h5>
 
             <!--  shopping cart items   -->
                 <div class="row">
@@ -133,14 +137,14 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                         <img src="<?php echo  $pd['item_image'] ?? "./assets/products/1.png" ?>" style="height: 120px;" alt="cart1" class="img-fluid">
                     </div>
                     <div class="col-sm-8">
-                        <h5 class="font-baloo font-size-20"><?php echo $pd['item_name'] ?? "Unknown"; ?></h5>
+                        <h5 class="font-baloo font-size-20" style=" color: aliceblue;"><?php echo $pd['item_name'] ?? "Unknown"; ?></h5>
                         <!-- product qty -->
                         <div class="qty d-flex pt-2">
                         <input type="number" min="0" value="1" max="<?php echo $pd['item_qty']?>" name="number">
                             <form method="post">
                                 <input type="hidden" value="<?php echo $pd['item_id']?? 0; ?>" name="delete-cart-submit">
-                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
-                                <a href="../detail/index.php?item_id=<?php echo $index=$pd['item_id']-1;?>" class="btn ">About </a>
+                                <button type="submit" class="btn font-baloo text-danger px-3 border-right" style=" color: aliceblue;">Delete</button>
+                                <a href="../detail/index.php?item_id=<?php echo $index=$pd['item_id']-1;?>" class="btn " style=" color: aliceblue;">About </a>
                             </form>
                         </div>
                         <!-- !product qty -->
@@ -149,7 +153,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
 
                     <div class="col-sm-2 text-right">
                         <div class="font-size-20 text-danger font-baloo">
-                            $<span class="product_price" data-id="<?php echo $pd['item_id'] ?? '0'; ?>"><?php echo $pd['item_price'] ?? 0; ?></span>
+                            <span class="product_price font-size-20"  data-id="<?php echo $pd['item_id'] ?? '0'; ?>" ><?php echo $pd['item_price'] ?? 0; ?></span>
                         </div>
                     </div>
                 </div>
@@ -163,9 +167,9 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
             <!-- subtotal section-->
             <div class="col-sm-3">
                 <div class="sub-total border text-center mt-2">
-                    <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check"></i> Your order is eligible for FREE Delivery.</h6>
+                    <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check" style=" color: aliceblue;"></i> Your order is eligible for FREE Delivery.</h6>
                     <div class="border-top py-4">
-                        <h5 class="font-baloo font-size-20">Subtotal ( <?php echo count($cart_list); ?> item):&nbsp; <span class="text-danger">$<span class="text-danger" id="deal-price">
+                        <h5 class="font-baloo font-size-20" style=" color: aliceblue;">Subtotal ( <?php echo count($cart_list); ?> item):&nbsp; <span class="text-danger">$<span class="text-danger" id="deal-price">
                             <?php echo $sum  ?></span> </span> </h5>
                         <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
                     </div>

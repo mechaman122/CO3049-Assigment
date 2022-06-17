@@ -53,7 +53,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="index.php?search=.*" style="color: rgb(211, 230, 89);">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color:rgb(142, 216, 229)">Products</a>
@@ -157,7 +157,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                         <div class="card" style="width: 280px ;height: 450px">
                             <iframe name="votar" style="display:none;"></iframe>
                             <form method="POST" target="votar">
-                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
+                            <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
                             <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
                             <div class="card-body">
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>

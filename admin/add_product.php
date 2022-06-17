@@ -17,7 +17,7 @@ header("Location:product-manager.php?search=.*");
 <div style="width:500px;">
 <table class="table" border="0" cellpadding="10" cellspacing="0" align="center">
 <tr class="tableheader">
-<td style="background-color: yellow;">Edit Product</td>
+<td style="background-color: yellow;">Add Product</td>
 </tr>
 
 <tr>

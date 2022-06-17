@@ -12,6 +12,12 @@ if (isset($_SESSION["username"])) {
     $url = $_SERVER['REQUEST_URI']; 
     $url_components = parse_url($url);
     parse_str($url_components['query'], $params);
+
+    if(isset($_POST['search']) && !empty($_POST['search'])){
+        $url = "../show_product/index.php?search=" . $_POST['search'] . ".*";
+        header("Location: $url");
+    }
+    
 ?>
 
 
@@ -98,15 +104,13 @@ if (isset($_SESSION["username"])) {
 
                     <!--Below is the code to show user logo (with dropdown) and cart info (with dropdown)-->
 
-                    <div class="dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="user-cart-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <form action="#" class="font-size-14 font-rale">
+                        <a href="../Cart/index.php" class="py-2 rounded-pill color-primary-bg">
                             <img src="../img/cart-icon.jpg" alt="cart icon" width="40px" height="auto">
+                            <span class="font-size-16 px-2 text-white"><i class="fas fa-shopping-cart"></i></span>
+                            <span class="px-3 py-2 rounded-pill text-dark bg-light"><?php echo count($cart_list); ?></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-end p-2" style="max-width: 250px;" aria-labelledby="user-cart-dropdown">
-                            <li><a class="dropdown-item" id="user-cart-viewall" href="#"><i class="bi bi-view-stacked"></i> View Cart (10)</a></li>
-                            <li><a class="dropdown-item active" id="user-checkout" href="#"><i class="bi bi-arrow-right-square"></i> Proceed to Checkout</a></li>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </nav>
@@ -120,6 +124,9 @@ if (isset($_SESSION["username"])) {
                     </div>
                     <div class="col-md-6" style="margin-top: 30px; font-size: 20px; letter-spacing:1px;" >
                         <ul style="line-height:35px;" class="information" >
+                        <iframe name="votar" style="display:none;"></iframe>
+                            <form method="POST" target="votar">
+                            <input type="text" name="addToCart" value="<?php echo $product_list[$params['item_id']]['item_id']?>" hidden>
                             <li style=" color: aliceblue;">Product name : <?php echo $product_list[$params['item_id']]['item_name'] ?></li>  <!-- tên sản phẩm  -->
                             <li style=" color: aliceblue;">Price: $<?php echo $product_list[$params['item_id']]['item_price'] ?></li> <!-- giá tiền -->
                             <li style=" color: aliceblue;">Category: <?php echo $product_list[$params['item_id']]['item_cate'] ?></li> <!--cate -->
@@ -127,7 +134,8 @@ if (isset($_SESSION["username"])) {
                             <li style=" color: aliceblue;">About this product: <?php echo $product_list[$params['item_id']]['item_about'] ?></li> <!-- about -->
                             <li class="quantity" style=" color: aliceblue;">Quantity: <?php echo $product_list[$params['item_id']]['item_qty']?>
                             </li>                       
-                            <li><button class="btn btn-outline-success">Add To Cart</button></li>
+                            <li><button class="btn btn-outline-success" type="submit" >Add To Cart</button></li>
+                            </form>
                         </ul>
                     </div>
                 </div>
@@ -158,5 +166,8 @@ if (isset($_SESSION["username"])) {
     </div>
 </footer>
 <button onclick="topFunction()" id="myBtn" title="Go to top">BACK TO TOP</button>
+<?php if(isset($_POST['addToCart']) && !empty($_POST['addToCart'])){
+    $cart->addToCart($_POST['addToCart']);
+}?>
 </body>
 </html>
