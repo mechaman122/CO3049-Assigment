@@ -14,6 +14,8 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
     header("Location: $url");
 }
 
+
+
 ?>
 
 
@@ -53,7 +55,7 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
+                            <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color: rgb(211, 230, 89);">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color:rgb(142, 216, 229)">Products</a>
@@ -100,9 +102,6 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                         </ul>
                     </div>
 
-                    <!--Below is the code to show user logo (with dropdown) and cart info (with dropdown)-->
-
-                      
 
                     <form action="#" class="font-size-14 font-rale">
                         <a href="../Cart/index.php" class="py-2 rounded-pill color-primary-bg">
@@ -115,66 +114,68 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
             </div>
         </nav>
     </div>
+    <section id="cart" class="py-3 mb-5">
+            <div class="container-fluid w-75">
+            <h5 class="font-baloo font-size-20">Shopping Cart</h5>
 
-    <!--Below is to show carousel to show banner-->
-    <div id="banner-carousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#banner-carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner" style="width: 100vw;">
-            <div class="carousel-item active">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="../img/among-us-youtube-banner.jpg" class="d-block w-100 mx-auto" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#banner-carousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#banner-carousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-    <br>
-    <br>
-
-    <br><br>
-         <h1 style="color: white;">You May like</h1>  
-         <div class="container">
-            <div class="row product-row">
-                <?php for($i=0;$i<20;$i++){
-                $j=rand(0,59);
-                 $item=$product_list[$j];?><br>
-                    <div class="col-6 col-sm-3">
-                        <div class="card" style="width: 280px ;height: 450px">
-                            <iframe name="votar" style="display:none;"></iframe>
-                            <form method="POST" target="votar">
-                                <input type="text" name="addToCart" value="<?php echo $item['item_id']?>" hidden>
-                            <img src="<?php echo $item['item_image'] ?>"class="card-img-top" style="height: 300px;">
-                            <div class="card-body">
-                            <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
-                            <p class="card-text"><?php echo $item['item_price'] ?></p>
-                            <button type="submit" class="btn btn-warning font-size-12">Add to Cart</button>
-                             <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
-                            </div>
-                            </form> 
-                        </div>
-                        <br>
+            <!--  shopping cart items   -->
+                <div class="row">
+                    <div class="col-sm-9">
+                        <?php
+                        $sum=0;
+                            foreach ($cart_list as $item) {
+                                $pd=$product_list[$item['item_id']-1];
+                                $sum+=$pd['item_price'];
+                            ?>
+                            <!-- cart item -->
+                            <div class="row border-top py-3 mt-3">
+                        <div class="col-sm-2">
+                        <img src="<?php echo  $pd['item_image'] ?? "./assets/products/1.png" ?>" style="height: 120px;" alt="cart1" class="img-fluid">
                     </div>
-                
-                <?php } ?>
-            </div>
-         </div>    
+                    <div class="col-sm-8">
+                        <h5 class="font-baloo font-size-20"><?php echo $pd['item_name'] ?? "Unknown"; ?></h5>
+                        <!-- product qty -->
+                        <div class="qty d-flex pt-2">
+                        <input type="number" min="0" value="1" max="<?php echo $pd['item_qty']?>" name="number">
+                            <form method="post">
+                                <input type="hidden" value="<?php echo $pd['item_id']?? 0; ?>" name="delete-cart-submit">
+                                <button type="submit" class="btn font-baloo text-danger px-3 border-right">Delete</button>
+                                <a href="../detail/index.php?item_id=<?php echo $index=$pd['item_id']-1;?>" class="btn ">About </a>
+                            </form>
+                        </div>
+                        <!-- !product qty -->
 
-    
+                    </div>
+
+                    <div class="col-sm-2 text-right">
+                        <div class="font-size-20 text-danger font-baloo">
+                            $<span class="product_price" data-id="<?php echo $pd['item_id'] ?? '0'; ?>"><?php echo $pd['item_price'] ?? 0; ?></span>
+                        </div>
+                    </div>
+                </div>
+                <!-- !cart item -->
+                <?php             
+                        }; 
+                        // closing array_map function
+                    
+                ?>
+            </div>
+            <!-- subtotal section-->
+            <div class="col-sm-3">
+                <div class="sub-total border text-center mt-2">
+                    <h6 class="font-size-12 font-rale text-success py-3"><i class="fas fa-check"></i> Your order is eligible for FREE Delivery.</h6>
+                    <div class="border-top py-4">
+                        <h5 class="font-baloo font-size-20">Subtotal ( <?php echo count($cart_list); ?> item):&nbsp; <span class="text-danger">$<span class="text-danger" id="deal-price">
+                            <?php echo $sum  ?></span> </span> </h5>
+                        <button type="submit" class="btn btn-warning mt-3">Proceed to Buy</button>
+                    </div>
+                </div>
+            </div>
+            <!-- !subtotal section-->
+        </div>
+        <!--  !shopping cart items   -->
+    </div>
+</section>
 
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
@@ -185,10 +186,9 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
         </div>
     </footer>
     <button onclick="topFunction()" id="myBtn" title="Go to top">BACK TO TOP</button>
-    <?php if(isset($_POST['addToCart']) && !empty($_POST['addToCart'])){
-    $cart->addToCart($_POST['addToCart']);
-}?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 </body>
-
+<?php if (isset($_POST['delete-cart-submit'])){
+    $cart->deleteCart($_POST['delete-cart-submit']);
+}?>
 </html>

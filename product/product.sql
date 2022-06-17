@@ -3,6 +3,13 @@
 --
 
 -- --------------------------------------------------------
+-- Table structure for table `cart`
+--
+
+CREATE TABLE `cart` (
+  `cart_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Table structure for table `tbl_product`
@@ -181,3 +188,5 @@ ALTER TABLE `tbl_product`
 --
 ALTER TABLE `tbl_product`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT;
+
+
