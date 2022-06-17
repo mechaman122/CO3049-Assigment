@@ -170,3 +170,51 @@ ul li {
     text-align: justify;
     line-height: 1.4;
 }
+
+
+/* Contact */
+
+.contact{
+    width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 64px 16px;
+    height: 75vh;
+}
+
+.contact-section-heading{
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.contact-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact-mem{
+    width: 25%;
+}
+.contact-mem {
+    text-align: center;
+}
+
+.contact-mem p{
+    color: #fff;
+}
+.contact-img{
+    height:125px;
+}
+.contact-name .contact-info .contact-id{
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.contact-logo{
+    text-align: center;
+}
+.contact-logo img{
+    height: 40px;
+    
+}
