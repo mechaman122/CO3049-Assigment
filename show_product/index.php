@@ -206,7 +206,7 @@ if (isset($_SESSION["username"])) {
          <div class="container">
             <div class="row product-row">
                 <?php for($i=0;$i<8;$i++){
-                $j=rand(0,50);
+                $j=rand(0,59);
                  $item=$product_list[$j];?><br>
                  <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">

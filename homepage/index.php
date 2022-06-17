@@ -141,7 +141,7 @@ if (isset($_SESSION["username"])) {
          <div class="container">
             <div class="row product-row">
                 <?php for($i=0;$i<20;$i++){
-                $j=rand(0,60);
+                $j=rand(0,59);
                  $item=$product_list[$j];?><br>
                  <div class="col-6 col-sm-3">
                     <div class="card" style="width: 280px ;height: 450px">
@@ -150,7 +150,7 @@ if (isset($_SESSION["username"])) {
                             <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
                             <p class="card-text"><?php echo $item['item_price'] ?></p>
                             <a href="#" class="btn btn-primary">Add now</a>
-                            <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
+                            <a href="../detail/index.php?item_id=<?php echo $index=$item['item_id']-1;?>" class="btn ">Check </a>
                         </div>
                     </div>
                     <br>

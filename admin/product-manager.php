@@ -38,10 +38,10 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
 </head>
 
 
-<body>
+<body style="background-image: url(../img/zutru.jpg);">
 
     <!--Below is to show the navigation bar-->
-    <div class="container-fluid" style="background-image: url(../img/zutru.jpg);">
+    <div class="container-fluid" >
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-image: url(../img/zutru.jpg);">
             <!--Below is to show left side of the navigation bar-->
             <div class="container-fluid">
