@@ -58,6 +58,11 @@ if(isset($_POST['search']) && !empty($_POST['search'])){
                         <li class="nav-item">
                             <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color:rgb(142, 216, 229)">Products</a>
                         </li>
+                        <?php if($username == "admin1") {?>
+                            <li class="nav-item">
+                                <a class="nav-link fw-bold" href="../admin/index.php" style="color:rgb(142, 216, 229)">AdminDashBoard</a>
+                            </li>
+                        <?php } ?>
                     </ul>
                     <form method="POST" action="" class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox" name="search">
