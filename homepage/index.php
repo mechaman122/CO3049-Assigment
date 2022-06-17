@@ -9,6 +9,11 @@ if (isset($_SESSION["username"])) {
     $username = "Guest";
 }
 
+if(isset($_POST['search']) && !empty($_POST['search'])){
+    $url = "../show_product/index.php?search=" . $_POST['search'] . ".*";
+    header("Location: $url");
+}
+
 ?>
 
 
@@ -51,11 +56,11 @@ if (isset($_SESSION["username"])) {
                             <a class="nav-link fw-bold active" aria-current="page" href="index.php" style="color: rgb(211, 230, 89);">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="../show_product/index.php" style="color:rgb(142, 216, 229)">Products</a>
+                            <a class="nav-link fw-bold" href="../show_product/index.php?search=.*" style="color:rgb(142, 216, 229)">Products</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox">
+                    <form method="POST" action="" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox" name="search">
                         <button type="submit" class="btn btn-outline-dark"><i class="bi bi-search"></i></button>
                     </form>
                 </div>

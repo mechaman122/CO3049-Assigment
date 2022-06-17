@@ -9,6 +9,11 @@ if (isset($_SESSION["username"])) {
     $username = "Guest";
 }
 
+if(isset($_POST['search']) && !empty($_POST['search'])){
+    $url = "../show_product/index.php?search=" . $_POST['search'] . ".*";
+    header("Location: $url");
+}
+
 ?>
 
 
@@ -52,12 +57,12 @@ if (isset($_SESSION["username"])) {
                             <a class="nav-link fw-bold active" aria-current="page" href="../homepage/index.php" style="color:rgb(142, 216, 229)">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="index.php"  style="color: rgb(211, 230, 89);">Products</a>
+                            <a class="nav-link fw-bold" href="index.php?search=.*"  style="color: rgb(211, 230, 89);">Products</a>
                         </li>
 
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox">
+                    <form method="POST" action="" class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="textbox" name="search">
                         <button type="submit" class="btn btn-outline-dark"><i class="bi bi-search"></i></button>
                     </form>
                 </div>
@@ -107,6 +112,44 @@ if (isset($_SESSION["username"])) {
             </div>
         </nav>
     </div>
+
+    <br><br>
+    <?php 
+        $url = $_SERVER['REQUEST_URI']; 
+        $url_components = parse_url($url);
+        parse_str($url_components['query'], $params);
+        if($params['search'] != ".*") {
+            $pattern = "/".$params['search']."/";
+            ?> 
+                <h1 style="color: white;">Looking For These?</h1> 
+                <div class="container py-4">
+                    <div class="row product-row">
+                        <?php 
+                            foreach($product_list as $item){
+                                if(preg_match($pattern, $item['item_name'])){
+                                    ?>
+                                        <div class="col-6 col-sm-3">
+                                            <div class="card" style="width: 280px ;height: 450px">
+                                                <img src="<?php echo $item['item_image'] ?>" class="card-img-top" style="height: 300px;">
+                                                <div class="card-body">
+                                                    <h5 class="card-title fw-bold d-inline-block text-truncate" style="max-width: 200px;"><?php echo $item['item_name'] ?></h5>
+                                                    <p class="card-text"><?php echo $item['item_price'] ?></p>
+                                                    <a href="#" class="btn btn-primary">Add now</a>
+                                                    <a href="../detail/index.php?item_id=<?php echo $item=$item['item_id']-1;?>" class="btn ">Check</a>
+                                                </div>
+                                            </div>
+                                            <br>
+                                        </div>   
+                                    <?php
+                                }
+                            } 
+                        ?>
+                    </div>
+                </div>
+            <?php
+        }
+        
+    ?>
 
     <br><br>
     <h1 style="color: white;">Top Sale</h1>
